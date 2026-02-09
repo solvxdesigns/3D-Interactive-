@@ -1,0 +1,20 @@
+# HAI Chatbot Website - Dora AI Prompt
+
+Create a cinematic single-page website for HAI (Humanoid Artificial Intelligence) chatbot with scroll-triggered 3D animations.
+
+## Design
+**Colors:** Black background (#050505), cyan accent (#00F2FF), magenta (#FF00E5), white text. **Typography:** Futuristic font (Orbitron), 14-72px sizes. **Effects:** Glassmorphism with blur(40px), gradient backgrounds, glowing shadows.
+
+## Page Structure (4 Sections, 100vh each)
+
+**Section 1 - Hero:** Black background, centered "HAI" title (120px) with cyan-magenta gradient, subtext "HUMANOID ARTIFICIAL INTELLIGENCE" (24px), "Experience HAI" button with cyan border, animated particles floating upward, scroll indicator at bottom.
+
+**Section 2 - 3D Robot Intro:** Display cute white ceramic robot (400px height, large cyan LED eyes, "HAI" chest emblem, antenna with glowing orb). **Scroll 0-25%:** Robot enters from top spinning. **25-50%:** Robot floats idle, arms wave, eyes blink. **50-75%:** Robot performs jump with squash-stretch animation. **75-100%:** Robot moves left side of screen. Right side shows text: "Meet Your AI Companion" with feature descriptions. Glassmorphic cards appear.
+
+**Section 3 - Features:** Three glassmorphic cards (30% width each) displaying: "Natural Conversations" 💬, "Multi-Modal Intelligence" 🧠, "Continuous Learning" 📈. Robot stays visible on left, performs pointing gestures. Background has particle effects.
+
+**Section 4 - Chat Interface (Sticky):** **Robot Fall Animation:** Robot wobbles, eyes turn to X marks, falls off screen spinning (1.5s), screen shakes on impact, robot shatters into 20 glowing fragments. **Transformation:** Robot head stays intact, fragments fly to center forming glassmorphic chat bar (800px × 70px). Head shrinks into 3D microphone icon (40px) on right side with pulsing animation.
+
+**Chat Interface:** Left sidebar (25%) shows conversation history with hover glow effects. Main area (75%) displays message bubbles with glitch-assembly animation. Bottom: floating chat bar with paperclip icon (left), input field "Command HAI..." (center), animated microphone icon (right) with breathing pulse and ripple effects when active.
+
+**Technical:** React/Next.js, Three.js for 3D, Framer Motion for UI, 60 FPS performance, mobile responsive, custom glowing cursor.

@@ -1,0 +1,935 @@
+# DETAILED PROMPT FOR KIMI AI - HAI CHATBOT WEBSITE
+
+---
+
+## 🎯 PROJECT OBJECTIVE
+
+Create a **cinematic, single-page website** for HAI (Humanoid Artificial Intelligence) chatbot. The experience features a 3D robot character that performs animated sequences as the user scrolls, culminating in the robot falling and transforming into a functional chat interface.
+
+---
+
+## 📐 WEBSITE STRUCTURE
+
+### Single Page Layout with Scroll-Triggered Sections
+
+```
+SECTION 1: Hero/Landing (100vh)
+SECTION 2: 3D Robot Introduction (100vh) 
+SECTION 3: Features Showcase (100vh)
+SECTION 4: Robot Fall & Chat Interface (100vh - sticky)
+```
+
+---
+
+## 🎨 DESIGN SYSTEM
+
+### Colors
+```
+Background Dark: #050505
+Background Black: #000000
+Primary Cyan: #00F2FF
+Primary Magenta: #FF00E5
+White: #FFFFFF
+Glass BG: rgba(20, 20, 20, 0.6)
+Border Glass: rgba(255, 255, 255, 0.2)
+Text Primary: #FFFFFF
+Text Muted: rgba(255, 255, 255, 0.7)
+```
+
+### Typography
+```
+Font Family: 'Orbitron', 'Exo 2', sans-serif
+H1: 72px, weight 700, letter-spacing 0.1em
+H2: 48px, weight 700, letter-spacing 0.08em
+H3: 32px, weight 600, letter-spacing 0.05em
+Body: 18px, weight 400, letter-spacing 0.02em
+Small: 14px, weight 300, letter-spacing 0.05em
+```
+
+### Effects
+```
+Glassmorphism:
+- backdrop-filter: blur(40px) saturate(180%)
+- background: rgba(20, 20, 20, 0.6)
+- border: 1.5px solid rgba(255, 255, 255, 0.2)
+- box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4)
+
+Gradient:
+- linear-gradient(135deg, #00F2FF 0%, #FF00E5 100%)
+
+Glow Effect:
+- box-shadow: 0 0 20px rgba(0, 242, 255, 0.6)
+```
+
+---
+
+## 📱 SECTION 1: HERO/LANDING (0-100vh scroll)
+
+### Layout
+```
+Full viewport height (100vh)
+Background: #000000
+Content: Centered vertically and horizontally
+Z-index layering: Background particles < Text < Foreground elements
+```
+
+### Content Elements
+
+**Main Heading:**
+```
+Text: "HAI"
+Position: Center of screen
+Font-size: 120px
+Font-weight: 700
+Color: Transparent with gradient fill
+Background: linear-gradient(135deg, #00F2FF, #FF00E5)
+-webkit-background-clip: text
+Text-shadow: 0 0 40px rgba(0, 242, 255, 0.4)
+Animation: Fade in from opacity 0 to 1 over 1s
+           Scale from 0.8 to 1 over 1s with ease-out
+```
+
+**Subheading:**
+```
+Text: "HUMANOID ARTIFICIAL INTELLIGENCE"
+Position: Below "HAI", centered
+Font-size: 24px
+Font-weight: 300
+Color: rgba(255, 255, 255, 0.8)
+Letter-spacing: 0.3em
+Animation: Fade in after 0.5s delay, slide up 20px
+```
+
+**CTA Button:**
+```
+Text: "Experience HAI"
+Position: Below subheading (40px margin)
+Padding: 16px 40px
+Background: Transparent
+Border: 2px solid #00F2FF
+Border-radius: 30px
+Color: #00F2FF
+Font-size: 16px
+Font-weight: 600
+Transition: all 300ms ease
+
+Hover State:
+- Background: #00F2FF
+- Color: #000000
+- Box-shadow: 0 0 30px rgba(0, 242, 255, 0.6)
+- Transform: translateY(-2px)
+```
+
+**Scroll Indicator:**
+```
+Position: Bottom center (30px from bottom)
+Element: Animated mouse icon or down arrow
+Animation: Bounce up/down 10px, 2s infinite loop
+Color: rgba(255, 255, 255, 0.5)
+Size: 30px
+```
+
+### Background Effects
+```
+Particle System:
+- Count: 100 particles
+- Color: rgba(255, 255, 255, 0.3)
+- Size: 2-4px random
+- Movement: Slow upward drift (0.5px/s)
+- Opacity: Random 0.2-0.6, twinkling effect
+- Distribution: Random across viewport
+```
+
+---
+
+## 🤖 SECTION 2: 3D ROBOT INTRODUCTION (100vh-200vh scroll)
+
+### Layout
+```
+Height: 100vh
+Background: linear-gradient(180deg, #000000 0%, #050505 100%)
+3D Canvas: Full section coverage
+Content overlay: Text appears on sides
+```
+
+### 3D Robot Model Specifications
+
+**Model Details:**
+```
+Format: GLTF/GLB 3D model
+Style: Cute Pixar-style humanoid robot
+Proportions:
+- Head: Round sphere, large eyes
+- Body: Rounded rectangular torso with "HAI" chest emblem
+- Arms: Short, stubby with 3-finger hands
+- Legs: Short with round feet
+- Antenna: Single antenna on head with glowing orb tip
+
+Material:
+- Base: Glossy white ceramic (PBR material)
+- Roughness: 0.2
+- Metalness: 0.1
+- Color: #FFFFFF
+
+Eyes:
+- Type: LED-style circular panels
+- Color: #00F2FF (emissive)
+- Size: Large and expressive
+- Animation: Blink every 3-5 seconds
+
+Chest Emblem:
+- Text: "HAI"
+- Style: Embossed/engraved
+- Glow: Subtle cyan backlight
+
+Size: 400px height when fully visible
+```
+
+### Scroll-Based Animation Sequence
+
+**Scroll Progress: 0-25% (100vh to 125vh)**
+```
+Robot enters from top of screen
+Position Y: -500px → 0px (center)
+Rotation Y: 0deg → 360deg (full spin)
+Opacity: 0 → 1
+Duration: Tied to scroll position (smooth)
+```
+
+**Scroll Progress: 25-50% (125vh to 150vh)**
+```
+Robot floating idle animation:
+- Position Y: Oscillate ±20px (sine wave, 2s period)
+- Rotation Y: Slow rotation 360deg over 10s
+- Arms: Gentle wave motion (alternate arms)
+- Eyes: Blink randomly
+- Antenna orb: Pulse glow 0.5 → 1.0 → 0.5 (2s loop)
+```
+
+**Scroll Progress: 50-75% (150vh to 175vh)**
+```
+Robot performs gestures:
+- Wave with right arm (2s)
+- Head tilt left/right (1s)
+- Jump animation with squash & stretch (1.5s)
+  - Squash: scaleY 0.8, scaleX 1.2
+  - Stretch: scaleY 1.3, scaleX 0.9
+- Eyes change to happy expression (crescents)
+```
+
+**Scroll Progress: 75-100% (175vh to 200vh)**
+```
+Robot moves to side of screen:
+Position X: 0 → -30vw (left side)
+Scale: 1.0 → 0.7 (appears to move back)
+Rotation Y: Current → Current + 45deg (turns to face content)
+```
+
+### Text Content Overlay
+
+**Appears at 25% scroll:**
+```
+Position: Right side of screen (60% width)
+Padding: 60px
+
+Heading:
+"Meet Your AI Companion"
+Font-size: 48px
+Color: #FFFFFF
+Margin-bottom: 30px
+
+Paragraph 1:
+"HAI is a next-generation artificial intelligence designed to understand, 
+assist, and evolve with you."
+Font-size: 18px
+Color: rgba(255, 255, 255, 0.8)
+Line-height: 1.8
+Margin-bottom: 20px
+
+Paragraph 2:
+"Powered by advanced neural networks and natural language processing, 
+HAI delivers human-like conversations with precision and empathy."
+Font-size: 18px
+Color: rgba(255, 255, 255, 0.8)
+Line-height: 1.8
+
+Animation:
+- Fade in: opacity 0 → 1 over 0.8s
+- Slide in: translateX(50px) → 0 over 0.8s
+- Stagger: Each element delays by 0.2s
+```
+
+### Three.js Scene Setup
+```javascript
+Camera:
+- Type: PerspectiveCamera
+- FOV: 45
+- Position: [0, 0, 10]
+- Look at: [0, 0, 0]
+
+Lighting:
+- AmbientLight: intensity 0.4, color #FFFFFF
+- DirectionalLight 1: position [5, 10, 7], intensity 1.5, color #00F2FF
+- DirectionalLight 2: position [-5, 5, -5], intensity 1.0, color #FF00E5
+- PointLight: position [0, 5, 5], intensity 0.8, creates rim light
+
+Controls:
+- No user controls (camera is fixed)
+- All movement driven by scroll position
+```
+
+---
+
+## ✨ SECTION 3: FEATURES SHOWCASE (200vh-300vh scroll)
+
+### Layout
+```
+Height: 100vh
+Background: #050505
+Display: CSS Grid - 3 columns on desktop, 1 column on mobile
+Robot: Visible on left side, continues from Section 2
+```
+
+### Feature Cards (3 total)
+
+**Card Structure:**
+```
+Width: 30% (desktop), 90% (mobile)
+Background: Glassmorphism effect
+Padding: 40px
+Border-radius: 20px
+Margin: 20px
+
+Hover Effect:
+- Transform: translateY(-10px)
+- Box-shadow: 0 20px 60px rgba(0, 242, 255, 0.3)
+- Border color: #00F2FF
+- Transition: all 400ms ease
+```
+
+**Card 1: Natural Conversations**
+```
+Icon: 💬 or SVG speech bubble (60px, cyan gradient)
+Heading: "Natural Conversations"
+Font-size: 24px, margin-bottom: 15px
+Body: "Engage in human-like dialogue with context awareness 
+       and emotional intelligence."
+Font-size: 16px, line-height: 1.6, color: rgba(255, 255, 255, 0.7)
+```
+
+**Card 2: Multi-Modal Intelligence**
+```
+Icon: 🧠 or SVG brain (60px, magenta gradient)
+Heading: "Multi-Modal Intelligence"
+Body: "Process text, voice, and visual inputs seamlessly 
+       for comprehensive understanding."
+```
+
+**Card 3: Continuous Learning**
+```
+Icon: 📈 or SVG growth chart (60px, cyan-magenta gradient)
+Heading: "Continuous Learning"
+Body: "Adapts to your preferences and evolves with every 
+       interaction for personalized experiences."
+```
+
+### Robot Behavior in This Section
+```
+Scroll Progress: 0-50% (200vh to 250vh)
+- Robot remains on left side
+- Performs pointing gestures toward feature cards
+- Eyes follow mouse cursor (subtle parallax)
+- Occasional head nod animation
+
+Scroll Progress: 50-100% (250vh to 300vh)
+- Robot begins looking downward
+- Arms move to sides (preparing to fall)
+- Eyes show concern expression ( ⊙ ⊙ )
+- Antenna stops glowing
+```
+
+---
+
+## 🎯 SECTION 4: ROBOT FALL & CHAT INTERFACE (300vh+ scroll)
+
+### Section Behavior
+```
+Position: Sticky (sticks when reached)
+Height: 100vh
+Background: #050505 with particle effects
+Trigger point: When user scrolls to 300vh
+```
+
+### Robot Fall Animation Sequence
+
+**Phase 1: Loss of Balance (Duration: 1s)**
+```
+Trigger: Section enters viewport
+Animation:
+- Robot wobbles left/right
+  - Rotation Z: -15deg → +15deg → -10deg → +10deg (decreasing)
+- Eyes change to X marks ( X X )
+- Arms flail randomly
+- Position Y: Stays at current height initially
+```
+
+**Phase 2: The Fall (Duration: 1.5s)**
+```
+Animation:
+- Position Y: Current → +1000px (falls below screen)
+- Rotation: 0deg → 720deg (2 full spins)
+- Scale: 1.0 → 0.8 (perspective effect)
+- Easing: cubic-bezier(0.55, 0.085, 0.68, 0.53) (gravity-like)
+- Opacity: 1 → 0.8 (slight fade)
+```
+
+**Phase 3: Impact Effect (At bottom, 0.2s)**
+```
+When robot "hits" bottom edge:
+- Screen shake: entire page vibrates
+  - Transform: translate(±3px, ±3px) random
+  - Duration: 200ms, 4 iterations
+- White flash overlay
+  - Opacity: 0 → 0.3 → 0
+  - Duration: 300ms
+- Sound effect (optional): Thud/impact sound
+```
+
+**Phase 4: Shatter into Fragments (Duration: 1s)**
+```
+Robot explodes into geometric shards:
+
+Shard Specifications:
+- Count: 20 pieces
+- Shapes: Triangular and polygonal 3D meshes
+- Size: Random 30px - 80px
+- Colors: White with gradient edges (cyan/magenta)
+- Initial velocity: Radial burst outward from robot center
+- Physics: Each shard has:
+  - Random rotation speed (100-300 deg/s)
+  - Gravity: -9.8 units/s² (falls then rises)
+  - Glow: emissive cyan or magenta
+
+Exception - Robot Head:
+- Does NOT shatter
+- Remains intact
+- Briefly tumbles in air
+- Glows brighter
+```
+
+**Phase 5: Magnetic Assembly (Duration: 1.5s)**
+```
+After 500ms pause, shards reverse direction:
+
+Movement:
+- All shards fly toward screen center
+- Trajectory: Bezier curves (smooth arcs)
+- Speed increases as they approach center
+- Rotation slows to 0deg
+- Form chat bar shape collectively
+
+Assembly Formation:
+- Shards arrange into horizontal bar (800px × 60px)
+- Overlap and blend together
+- Glow intensifies during merge
+- Final form: Glassmorphic chat input bar
+
+Robot Head Transformation:
+- Shrinks: scale 1.0 → 0.3 over 800ms
+- Moves to right side of chat bar
+- Morphs into microphone icon shape
+- Eyes remain visible (now smaller)
+- Settles with gentle bounce
+```
+
+### Final Chat Interface Layout
+
+**Chat Bar Specifications:**
+```
+Position: Fixed bottom center
+Width: 90vw (max 1000px)
+Height: 70px
+Margin-bottom: 30px
+Background: rgba(20, 20, 20, 0.6)
+Backdrop-filter: blur(40px) saturate(180%)
+Border: 1.5px solid rgba(255, 255, 255, 0.2)
+Border-radius: 35px
+Box-shadow: 
+  0 10px 40px rgba(0, 0, 0, 0.4),
+  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+```
+
+**Chat Bar Internal Elements (Flex layout):**
+
+**Left: File Upload Icon (15%)**
+```
+Icon: 📎 paperclip SVG
+Size: 24px
+Color: #00F2FF
+Padding: 20px
+Cursor: pointer
+
+Hover Effect:
+- Color: #FFFFFF
+- Transform: rotate(15deg) scale(1.1)
+- Transition: 200ms ease
+
+Click Animation:
+- Icon "melts" into droplets
+- 8-12 liquid drops splash outward
+- Each drop: 6-10px circle, cyan glow
+- Arc trajectory physics
+- Duration: 800ms
+- File picker opens simultaneously
+```
+
+**Center: Input Field (70%)**
+```
+Element: <input type="text">
+Placeholder: "Command HAI..."
+Font-size: 16px
+Color: rgba(255, 255, 255, 0.9)
+Background: Transparent
+Border: None
+Padding: 0 20px
+
+Placeholder Animation:
+- Gradient text effect
+- Background: linear-gradient(135deg, #00F2FF, #FF00E5)
+- Animation: Gradient position shifts, 3s loop
+
+Focus State:
+- Outline: None
+- Placeholder fades out
+- Subtle cyan glow around entire chat bar
+  - Box-shadow: 0 0 20px rgba(0, 242, 255, 0.4)
+```
+
+**Right: 3D Microphone Icon (15%)**
+```
+Element: Mini 3D robot head (transformed from full robot)
+Size: 40px diameter
+Features:
+- Ceramic white sphere
+- Two cyan LED eyes (dots)
+- Subtle glow
+
+Idle Animation:
+- Breathing pulse: scale 1.0 ↔ 1.05 (2s loop)
+- Eye blink: Every 4-6 seconds (100ms close)
+
+Hover State:
+- Eyes glow brighter
+- Scale: 1.1
+- Cursor: pointer
+
+Active/Listening State:
+- Eyes: Wide open, intense glow
+- Concentric ripple rings emanate
+  - 3 rings expand from 40px → 80px
+  - Opacity: 0.7 → 0
+  - Ring thickness: 2px
+  - Color: #00F2FF
+  - Duration: 1.5s per ring, stagger 0.3s
+- Head rotates slowly (360° over 3s)
+
+Idle Awareness (after 10s no input):
+- Eyes look around screen (follow mouse loosely)
+- Head rotates toward cursor direction
+- Creates "searching for input" behavior
+```
+
+### Chat Interface - Sidebar & Messages
+
+**Left Sidebar (25% width):**
+```
+Position: Fixed left
+Height: 100vh
+Background: rgba(255, 255, 255, 0.05)
+Backdrop-filter: blur(30px)
+Border-right: 1px solid rgba(0, 242, 255, 0.1)
+Padding: 24px
+
+Title: "Memory Archive"
+Font-size: 18px
+Font-weight: 600
+Color: #FFFFFF
+Margin-bottom: 20px
+
+Conversation List Items:
+- Background: Transparent
+- Padding: 12px 16px
+- Border-radius: 8px
+- Margin-bottom: 8px
+- Font-size: 14px
+- Color: rgba(255, 255, 255, 0.6)
+- Cursor: pointer
+
+Hover State:
+- Background: rgba(0, 242, 255, 0.1)
+- Color: #FFFFFF
+- Transform: translateX(8px)
+- Box-shadow: 0 0 15px rgba(0, 242, 255, 0.3)
+- Transition: all 300ms ease
+
+Each Item Shows:
+- Conversation title (truncate 30 chars)
+- Timestamp (small, muted)
+- Last message preview (15 chars)
+```
+
+**Main Chat Feed (75% width):**
+```
+Position: Fixed right of sidebar
+Height: calc(100vh - 120px) /* Account for chat bar */
+Padding: 40px
+Overflow-y: auto
+Background: Transparent
+
+Custom Scrollbar:
+- Width: 6px
+- Track: rgba(255, 255, 255, 0.05)
+- Thumb: rgba(0, 242, 255, 0.3)
+- Thumb hover: rgba(0, 242, 255, 0.6)
+```
+
+**Message Bubbles:**
+
+User Messages (Right-aligned):
+```
+Max-width: 70%
+Margin-left: auto
+Margin-bottom: 20px
+Background: linear-gradient(135deg, #00F2FF, #FF00E5)
+Color: #FFFFFF
+Padding: 16px 20px
+Border-radius: 20px 20px 4px 20px
+Box-shadow: 0 8px 24px rgba(0, 242, 255, 0.2)
+Font-size: 16px
+Line-height: 1.6
+
+Entry Animation:
+- Opacity: 0 → 1
+- Transform: translateY(20px) → 0, scale(0.9) → 1
+- Duration: 400ms
+- Easing: cubic-bezier(0.34, 1.56, 0.64, 1) (bounce)
+```
+
+AI Messages (Left-aligned):
+```
+Max-width: 70%
+Margin-right: auto
+Margin-bottom: 20px
+Background: rgba(255, 255, 255, 0.08)
+Backdrop-filter: blur(10px)
+Border: 1px solid rgba(255, 255, 255, 0.1)
+Color: #FFFFFF
+Padding: 16px 20px
+Border-radius: 20px 20px 20px 4px
+Box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3)
+Font-size: 16px
+Line-height: 1.6
+
+Entry Animation - Digital Glitch Assembly:
+- Message splits into 4 horizontal slices
+- Each slice starts at random X offset (-50px to +50px)
+- Slices slide into position with stagger (100ms delay each)
+- Slight opacity glitch during assembly (0.7 → 1)
+- Final snap-together with micro shake
+- Total duration: 800ms
+```
+
+### Custom Cursor Enhancement
+```
+Replace default cursor with custom design:
+
+Outer Ring:
+- Size: 30px diameter
+- Border: 2px solid
+- Border-color: gradient (cyan to magenta)
+- Background: Transparent
+- Follow mouse with 100ms delay (smooth trail)
+
+Inner Dot:
+- Size: 4px diameter
+- Background: #00F2FF
+- No delay (instant follow)
+
+Blink Animation:
+- Every 3 seconds
+- Ring expands: 30px → 40px
+- Opacity pulse: 1 → 0.5 → 1
+- Duration: 400ms
+
+Hover State (over clickable elements):
+- Ring shrinks: 30px → 20px
+- Dot becomes crosshair (4 lines)
+- Transition: 200ms ease-out
+```
+
+---
+
+## 🎛️ TECHNICAL IMPLEMENTATION REQUIREMENTS
+
+### Technology Stack
+```
+Frontend Framework: React 18+ or Next.js 14
+Language: TypeScript
+3D Library: Three.js with React Three Fiber
+Animation: Framer Motion (UI) + Three.js (3D)
+Physics: @react-three/cannon (optional for advanced physics)
+Styling: Tailwind CSS + styled-components
+Scroll: Locomotive Scroll or GSAP ScrollTrigger
+```
+
+### Performance Targets
+```
+First Contentful Paint: < 1.5s
+Time to Interactive: < 3s
+Frame Rate: Locked 60 FPS
+3D Model Size: < 2MB (compressed GLTF)
+Total Bundle: < 500KB gzipped (initial load)
+Lighthouse Score: 90+ Performance, 95+ Accessibility
+```
+
+### Scroll Implementation Logic
+```javascript
+// Pseudo-code for scroll-based animation
+
+useScrollProgress() {
+  const scrollY = window.scrollY;
+  const windowHeight = window.innerHeight;
+  
+  // Section 1: 0-100vh (Hero)
+  if (scrollY < windowHeight) {
+    // Static hero content
+  }
+  
+  // Section 2: 100vh-200vh (Robot intro)
+  if (scrollY >= windowHeight && scrollY < windowHeight * 2) {
+    const progress = (scrollY - windowHeight) / windowHeight;
+    
+    // Robot animations based on progress (0-1)
+    if (progress < 0.25) {
+      // Robot enters from top
+      robotPositionY = lerp(-500, 0, progress / 0.25);
+      robotRotationY = lerp(0, 360, progress / 0.25);
+    } else if (progress < 0.5) {
+      // Floating idle
+    } else if (progress < 0.75) {
+      // Perform gestures
+    } else {
+      // Move to side
+      robotPositionX = lerp(0, -30vw, (progress - 0.75) / 0.25);
+    }
+  }
+  
+  // Section 3: 200vh-300vh (Features)
+  if (scrollY >= windowHeight * 2 && scrollY < windowHeight * 3) {
+    // Robot stays on side, show feature cards
+  }
+  
+  // Section 4: 300vh+ (Chat interface - sticky)
+  if (scrollY >= windowHeight * 3) {
+    // Trigger robot fall sequence (plays once)
+    if (!fallAnimationPlayed) {
+      triggerRobotFall();
+      fallAnimationPlayed = true;
+    }
+  }
+}
+```
+
+### 3D Robot Model Requirements
+```
+File Format: GLTF 2.0 (.glb preferred)
+Polycount: < 10,000 triangles (optimized for web)
+Textures: 1024x1024 max resolution, compressed
+Animations: Embedded in model file
+Rigging: Simple bone structure for gestures
+Materials: PBR (Metallic-Roughness workflow)
+LOD Levels: 2 levels (high detail, low detail)
+
+Export Settings:
+- Draco compression: Enabled
+- KTX2 texture compression: Enabled
+- Remove unused materials: Yes
+- Merge duplicate vertices: Yes
+```
+
+### Responsive Breakpoints
+```css
+/* Desktop (default) */
+@media (min-width: 1024px) {
+  - Full 3D effects
+  - Sidebar visible
+  - 3 column feature grid
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  - Simplified 3D (reduce particles by 50%)
+  - Sidebar: Hamburger menu overlay
+  - 2 column feature grid
+  - Robot size: 70% of desktop
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  - 2D fallback for robot (animated SVG/Lottie)
+  - No particle effects
+  - Single column layout
+  - Chat bar: Full width, reduced padding
+  - Sidebar: Full-screen overlay
+  - Font sizes reduced by 20%
+}
+```
+
+### Accessibility Requirements
+```
+- All interactive elements: keyboard navigable (Tab order)
+- Chat input: ARIA labels, screen reader compatible
+- Color contrast: WCAG AA minimum (4.5:1 for text)
+- Reduced motion: Respect prefers-reduced-motion
+  - If enabled: Disable 3D animations, use simple fades
+- Focus indicators: Visible outline on all focusable elements
+- Alt text: All icons have aria-label attributes
+- Skip links: "Skip to chat" button for keyboard users
+```
+
+### Animation State Machine
+```
+States:
+- IDLE: Page loaded, hero visible
+- ROBOT_ENTERING: Scroll 100vh-125vh
+- ROBOT_IDLE: Scroll 125vh-150vh
+- ROBOT_GESTURING: Scroll 150vh-175vh
+- ROBOT_ASIDE: Scroll 175vh-200vh
+- FEATURES_VISIBLE: Scroll 200vh-300vh
+- ROBOT_FALLING: Scroll reaches 300vh (triggers once)
+- ROBOT_SHATTERING: After fall completes
+- CHAT_ASSEMBLING: Shards forming chat bar
+- CHAT_READY: Chat interface active
+
+Each state has:
+- Entry actions
+- Update loop (per frame)
+- Exit actions
+- Transition conditions
+```
+
+---
+
+## 🎨 ADDITIONAL POLISH DETAILS
+
+### Particle System (Background)
+```
+Count: 150 particles (desktop), 50 (mobile)
+Size: 1-3px random
+Color: rgba(255, 255, 255, 0.2-0.5)
+Movement: Slow upward drift + Perlin noise horizontal sway
+Speed: 0.3-0.8px/s
+Regeneration: When particle exits top, respawn at bottom
+Interaction: Mouse proximity pushes particles away (optional)
+```
+
+### Sound Design (Optional)
+```
+Robot Footsteps: Soft mechanical clicks during gestures
+Fall Impact: Deep thud with bass rumble
+Shatter: Glass breaking with digital glitch
+Assembly: Magnetic snap sounds
+Message Send: Soft "whoosh"
+Message Receive: Gentle notification chime
+Ambient: Subtle sci-fi hum (very low volume)
+
+Implementation:
+- Use Howler.js library
+- Preload all sounds
+- Respect user's audio preferences
+- Mute button in bottom corner
+```
+
+### Loading State
+```
+Before 3D model loads:
+
+Display:
+- Centered loading spinner (cyan gradient)
+- Text: "Initializing HAI..."
+- Progress bar: 0-100% based on model load
+- Background: #000000
+
+Transition:
+- Fade out loading screen
+- Fade in hero section
+- Duration: 800ms
+```
+
+### Easter Eggs
+```
+1. Click robot's antenna orb (when visible): Plays cheerful beep
+2. Type "hello HAI" in chat: Robot does happy dance
+3. Konami code on keyboard: Activates rainbow gradient mode
+4. Click void background 10 times: Spawns temporary particle burst
+```
+
+---
+
+## 📋 DELIVERABLES CHECKLIST
+
+```
+✅ Responsive single-page website
+✅ 4 scroll-triggered sections with smooth transitions
+✅ 3D robot model with scroll-based animations
+✅ Robot fall sequence with physics
+✅ Shattering effect with 20 fragments
+✅ Magnetic assembly into chat bar
+✅ Functional glassmorphic chat interface
+✅ Sidebar with conversation history
+✅ Message bubbles with glitch animation
+✅ 3D microphone icon with interactive states
+✅ Custom cursor with blink animation
+✅ File upload liquid animation
+✅ Particle background system
+✅ Mobile responsive design (3 breakpoints)
+✅ Accessibility compliance (WCAG AA)
+✅ Performance optimization (60 FPS)
+✅ Loading state
+✅ Error handling
+✅ Cross-browser compatibility (Chrome, Firefox, Safari, Edge)
+```
+
+---
+
+## 🚀 SUCCESS METRICS
+
+```
+User Experience:
+- Smooth scroll at 60 FPS on desktop
+- Robot fall animation plays without stutter
+- Chat interface feels responsive (< 100ms input lag)
+- Animations complete within expected timeframes
+
+Technical Performance:
+- Lighthouse Performance: > 90
+- Lighthouse Accessibility: > 95
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+- Total Blocking Time: < 200ms
+
+Browser Support:
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Mobile Safari (iOS 14+)
+- Chrome Mobile (Android 10+)
+```
+
+---
+
+**END OF DETAILED PROMPT**
+
+This prompt provides complete specifications for creating the HAI chatbot website with all scroll-triggered 3D robot animations, the fall sequence, shattering effect, and transformation into a functional chat interface. Every visual, technical, and interaction detail is specified for implementation.
